@@ -1,0 +1,57 @@
+.movies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* padding: 2rem; */
+}
+
+.movies-container div {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #111;
+}
+
+.container h2 svg {
+  margin-top: 2rem;
+  color: #fff;
+}
+
+.left-icon {
+  margin-top: 2rem;
+  color: #fff;
+}
+
+.card {
+  margin: 3rem .5rem;
+}
+
+.cards {
+  border-radius: 10px;
+  width: 60rem;
+  margin: 5rem;
+}
+
+.cards img {
+  border-radius: 10px 0 0 10px;
+}
+
+.row {
+  margin-bottom: 10rem;
+}
+
+.title-cards {
+  padding: 1rem;
+}
+
+.text-cards {
+  padding: .5rem 1rem;
+  font-size: large;
+}
+
+.title-movies {
+  border-left: 5px solid #fff;
+  padding: .5rem 1rem;
+  margin: 3rem 1rem 1rem .5rem;
+}
