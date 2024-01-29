@@ -49,7 +49,7 @@ export const CreateFigure = () => {
       });
 
       console.log("Arquivo enviado com sucesso!");
-      navigate("/public-figure");
+      navigate("/");
     } catch (error) {
       console.error("Erro ao enviar o arquivo:", error);
     }
@@ -63,7 +63,7 @@ export const CreateFigure = () => {
       }}
     >
       <div className="card text-bg-dark">
-        <div className="card-header" style={{ textAlign: 'center'}}>Formulário de cadastro</div>
+        <h3 className="title-primary">Cadastro de figuras públicas</h3>
         <div className="card-body">
           <form
             className="needs-validation was-validated form"
@@ -205,7 +205,7 @@ export const CreateFigure = () => {
             </div>
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <Link to={"/public-figure"} className="btn btn-secondary">
+              <Link to={"/"} className="btn btn-secondary">
                 Voltar
               </Link>
 

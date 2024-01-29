@@ -5,36 +5,43 @@ import axios from "axios";
 
 export const Card = ({ figure, showLink = true }) => {
   const [photo, setPhoto] = useState("");
-
-  // console.log(`http://localhost:8080/public-figure/photo/${figure.photo}`)
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Rota da API para buscar a imagem
     const apiUrl = `http://localhost:8080/public-figure/photo/${figure.photo}`;
 
-    // Faz a requisição para a API usando Axios
     axios
       .get(apiUrl, { responseType: "blob" })
       .then((response) => {
-        // Converte o blob em uma URL de dados
         const photo = URL.createObjectURL(new Blob([response.data]));
-
-        // Atualiza o estado com a URL da imagem
         setPhoto(photo);
       })
       .catch((error) => {
         console.error("Erro ao buscar a imagem:", error);
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, []);
+  }, [figure.photo]);
+
+  if (error) {
+    return <div>Erro ao buscar dados: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
 
   return (
-    <div className="card text-bg-dark" style={{ width: "20rem" }}>
-        <img
-          style={{ height: "200px", width: "100%", display: "block" }}
-          src={photo}
-          className="card-img-top"
-          alt={figure.name}
-        />
+    <div className="card text-bg-dark" style={{ width: "18rem" }}>
+      <img
+        style={{ height: "200px", width: "100%", display: "block" }}
+        src={photo}
+        className="card-img-top"
+        alt={figure.name}
+      />
       <div className="card-body">
         <h5 className="card-title">{figure.name}</h5>
         <p>Profissão: {figure.profession}</p>
@@ -42,7 +49,7 @@ export const Card = ({ figure, showLink = true }) => {
         <p>Nacionalidade: {figure.nationality}</p>
 
         {showLink && (
-          <Link to={`/public-figure/${figure.id}`} className="btn btn-primary">
+          <Link to={`/${figure.id}`} className="btn btn-primary">
             Detalhes
           </Link>
         )}
@@ -59,6 +66,7 @@ Card.propTypes = {
     user_id: PropTypes.number.isRequired,
     gender: PropTypes.number.isRequired,
     nationality: PropTypes.string.isRequired,
+    photo: PropTypes.string.isRequired,
   }).isRequired,
   showLink: PropTypes.bool,
 };
