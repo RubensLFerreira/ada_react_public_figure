@@ -13,7 +13,7 @@ export const CreateFigure = () => {
     profession: "",
     nationality: "",
     photo: "",
-    user_id: "9d0a7839-fda0-4078-99ca-3d9dea13e603",
+    user_id: "818e1c13-4f8d-480d-9a42-20836f84b608",
   });
 
   const handleChange = (e) => {
@@ -70,6 +70,7 @@ export const CreateFigure = () => {
             onSubmit={handleSubmit}
           >
             <div className="mb-1">
+              <label htmlFor="name">Nome</label>
               <input
                 type="text"
                 className="form-control"
@@ -87,6 +88,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-1">
+              <label htmlFor="birth">Data de nascimento</label>
               <input
                 type="date"
                 className="form-control"
@@ -104,6 +106,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-1">
+              <label htmlFor="height">Altura</label>
               <input
                 type="number"
                 className="form-control"
@@ -121,6 +124,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-1">
+              <label htmlFor="about">Descrição</label>
               <input
                 type="text"
                 className="form-control"
@@ -128,7 +132,7 @@ export const CreateFigure = () => {
                 onChange={handleChange}
                 name="about"
                 id="about"
-                placeholder="Descrição"
+                placeholder="Breve biográfia"
                 aria-describedby="aboutHelp"
                 required
               />
@@ -138,6 +142,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-4">
+              <label htmlFor="gender">Sexo</label>
               <select
                 className="form-select"
                 id="gender"
@@ -154,6 +159,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-1">
+              <label htmlFor="profession">Profissão</label>
               <input
                 type="text"
                 className="form-control"
@@ -161,7 +167,7 @@ export const CreateFigure = () => {
                 onChange={handleChange}
                 name="profession"
                 id="profession"
-                placeholder="Profissão"
+                placeholder="Ex: Atress"
                 aria-describedby="professionHelp"
                 required
               />
@@ -171,6 +177,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-1">
+              <label htmlFor="nationality">Nacionalidade</label>
               <input
                 type="text"
                 className="form-control"
@@ -178,7 +185,7 @@ export const CreateFigure = () => {
                 onChange={handleChange}
                 name="nationality"
                 id="nationality"
-                placeholder="Nacionalidade"
+                placeholder="Ex: Brasilian"
                 aria-describedby="nationalityHelp"
                 required
               />
@@ -188,6 +195,7 @@ export const CreateFigure = () => {
             </div>
 
             <div className="mb-1">
+              <label htmlFor="photo">Foto</label>
               <input
                 type="file"
                 className="form-control"
@@ -195,7 +203,6 @@ export const CreateFigure = () => {
                 onChange={handleChange}
                 name="photo"
                 id="photo"
-                placeholder="Foto de perfil"
                 aria-describedby="photoHelp"
                 required
               />

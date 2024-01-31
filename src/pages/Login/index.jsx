@@ -53,6 +53,7 @@ export const Login = () => {
                 className="form-control"
                 id="email"
                 name="email"
+                placeholder="E-mail"
                 required
                 onChange={handleChange}
               />
@@ -66,6 +67,7 @@ export const Login = () => {
                 className="form-control"
                 id="password"
                 name="password"
+                placeholder="Minimo 3 caracteres"
                 required
                 onChange={handleChange}
               />
@@ -74,9 +76,18 @@ export const Login = () => {
               <Link to={"/"} className="btn btn-secondary">
                 Voltar
               </Link>
-              <button type="submit" className="btn btn-primary">
-                Entrar
-              </button>
+              <div>
+                <Link to={"/admin"} className="btn btn-primary">
+                  Cadastrar-se
+                </Link>
+                <button
+                  style={{ marginLeft: "1rem" }}
+                  type="submit"
+                  className="btn btn-success"
+                >
+                  Entrar
+                </button>
+              </div>
             </div>
           </form>
         </div>
