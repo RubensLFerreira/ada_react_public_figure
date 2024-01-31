@@ -1,4 +1,17 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 export const Navbar = () => {
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!search) return;
+    navigate(`/search-name?name=${search}`);
+    setSearch("");
+  };
+
   function logout() {
     localStorage.removeItem("token");
     window.location.href = "/";
@@ -28,26 +41,16 @@ export const Navbar = () => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
-                Home
+                Início
               </a>
             </li>
             <li className="nav-item">
-              <a
-                className="nav-link active"
-                aria-current="page"
-                href="/cadastrar"
-              >
-                Cadastrar
-              </a>
-            </li>
-
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">
-                Usuário
+              <a className="nav-link active" aria-current="page" href="/admin">
+                Administrador
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          <div className="d-flex" role="search">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" aria-disabled="true" href="/login">
@@ -67,15 +70,20 @@ export const Navbar = () => {
                 </a>
               </li>
             </ul>
-            {/* <input
+          </div>
+
+          <form className="d-flex" onSubmit={handleSubmit} role="search">
+            <input
               className="form-control me-2"
               type="search"
               placeholder="Pesquisar..."
               aria-label="Search"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
             />
             <button className="btn btn-outline-success" type="submit">
               Pesquisar
-            </button> */}
+            </button>
           </form>
         </div>
       </div>

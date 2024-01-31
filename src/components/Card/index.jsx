@@ -45,8 +45,8 @@ export const Card = ({ figure, showLink = true }) => {
       <div className="card-body">
         <h5 className="card-title">{figure.name}</h5>
         <p>Profissão: {figure.profession}</p>
-        <p>Gênero: {figure.gender}</p>
         <p>Nacionalidade: {figure.nationality}</p>
+        <p>{figure.gender}</p>
 
         {showLink && (
           <Link to={`/${figure.id}`} className="btn btn-primary">
